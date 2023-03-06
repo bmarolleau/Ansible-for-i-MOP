@@ -9,9 +9,10 @@
     - name: create user profile xxxxx
       ibmi_user_and_group:
         operation: 'create'
-        user: 'XXXXX'
+        user: 'xxxxx'
         user_class: '*SECOFR'
       register: user_result
+      ignore_errors: true  
     - debug:
        var: user_result
 
@@ -19,3 +20,6 @@
       ibmi_user_and_group:
         operation: 'display'
         user: 'xxxxx'
+      register: user_prof_info
+    - debug:
+       var: user_prof_info     

@@ -1,6 +1,6 @@
 #Inventory
 [ibmi]
-10.3.60.XXX ansible_ssh_user=ansible ansible_ssh_pass=ansible
+<YOUR-IBMi-IP>  ansible_ssh_user=<ANSIBLE-USR-PROFILE> ansible_ssh_pass=<ANSIBLE-USR-PASSWORD>
 
 [ibmi:vars]
 ansible_python_interpreter="/QOpensys/pkgs/bin/python3"

@@ -4,8 +4,8 @@
 
   vars:
     cloud_name: 'pvcmop'
-    vm_name: 'IBMi_TeamX'
-    vm_hostname: 'ludo' 
+    vm_name: 'iTeamX'
+    vm_hostname: 'iteamX' 
     availability_zone: 'nova:828642A_102BABV' 
 
   roles:

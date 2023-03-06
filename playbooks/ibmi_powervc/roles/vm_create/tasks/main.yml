@@ -1,5 +1,15 @@
 ---
 # tasks file for vm_create
+
+- name: Create a network port with fixed ip
+  openstack.cloud.port:
+    auth: "{{ os_add_auth | default(omit) }}"
+    state: present
+    name: "{{ vm_name }}-port1"
+    network: "rubystudents361"
+    binding_profile: "{{ vm_create_port_binding_profile }}"
+    vnic_type: "{{ vm_create_binding_vnic_type }}"
+
 - name: VM initalization -> Deploying IBM i VM {{ vm_name }}
   os_server:
     state: present
@@ -8,7 +18,9 @@
     image: "{{ image }}"
     timeout: 200
     flavor: "{{ compute_template}}"
-    nics: "{{ nics }}"
+    availability_zone: "{{ availability_zone }}" 
+    nics: 
+      - port-name: "{{ vm_name }}-port1"
     meta:
       hostname: "{{ vm_hostname }}"
       group: "{{ vm_group }}"
@@ -17,4 +29,4 @@
 
 - name: VM initalization -> Deployed IBM i VM {{ vm_name }}
   debug:
-    var: server_info.openstack.public_v4
+    var: server_info

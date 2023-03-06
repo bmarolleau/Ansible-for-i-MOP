@@ -1,10 +1,12 @@
 clouds:
   pvcmop:
     auth:
-      auth_url: https://10.3.44.10:5000/v3
-      username: root
-      password: powerlinux
-      project_name: ibmi
+      auth_url: https://10.3.47.1:5000/v3
+      #username: rubyuser01 
+      #password: PassRB01%
+      username: rubyuser01
+      password: PassRB01%
+      project_name: ruby-students
       project_domain_name: Default
       user_domain_name: Default
     verify: False

@@ -3,14 +3,17 @@
   hosts: localhost
 
   vars:
+    #PowerVC and OpenStack variables:      
     cloud_name: 'pvcmop'
-    vm_name: 'IBMi_TeamX'
-    vm_hostname: 'ludo' 
-    availability_zone: 'nova:828642A_102BABV'
-    image: 'IBMi_V7R4'
+    vm_name: 'iTeamX'
+    vm_hostname: 'iteamX' 
+    availability_zone: "Radar:900922A_78DC790"
+    image: 'IBMI-74TR7'
+    compute_template: 'IBMi'
     nics:
-      - net-name: "VL360"
+      - net-name: "rubystudents361"
     vm_group: "Demo-ibmi"
+    vm_create_binding_vnic_type: "direct"
     user_data: |
       {%- raw -%}#!/bin/sh
       system "chgusrprf usrprf(qciuser) password(passw0rd) status(*enabled) usrcls(*secofr) spcaut(*allobj *iosyscfg *jobctl *secadm *audit *service *splctl *savsys)"
@@ -25,7 +28,8 @@
   tasks:
     - name: Add VM to Ansible in-memory inventory
       add_host:
-        name: "{{ server_info.openstack.public_v4 }}"
+        #name: "{{ server_info.openstack.public_v4 }}"
+        name: "{{ server_info.server.addresses.rubystudents361.0.addr }}"
         ansible_user: qciuser 
         ansible_ssh_pass: passw0rd
         groups: new_vm

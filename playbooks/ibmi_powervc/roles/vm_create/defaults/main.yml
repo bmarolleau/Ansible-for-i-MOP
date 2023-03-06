@@ -13,3 +13,9 @@ userdata: '|
       system "chgtcpsvr svrspcval(*sshd) autostart(*yes)"  
       system "strtcpsvr *sshd"
       {% endraw %}'
+
+# Network Provisioning method
+# Possible values are 'direct' for SRIOV and 'normal' for SEA
+vm_create_binding_vnic_type: 'direct'
+
+vm_create_port_binding_profile: "capacity='0.02', delete_with_instance='1', vnic_required_vfs='2'"

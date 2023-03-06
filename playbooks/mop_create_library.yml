@@ -6,9 +6,9 @@
 
   tasks:
     
-    - name: create ansible library
+    - name: create xxxxxx  library
       ibmi_cl_command:
-        cmd: crtlib lib(xxxxxxx)
+        cmd: crtlib lib(xxxxxx)
         joblog: false
       register: crtlib_result
     - debug:

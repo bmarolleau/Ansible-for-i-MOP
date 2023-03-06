@@ -1,0 +1,18 @@
+---
+- name: Listing PowerVC images
+  hosts: localhost
+
+  vars:
+    compute_template: 'IBMi'
+
+
+  tasks:
+    - name: Retrieve list of all PowerVC images
+      openstack.cloud.image_info:
+        auth: "{{ os_add_auth | default(omit) }}"
+      register: power_images
+    
+    - name: print image list
+      debug:
+         msg: "{{ power_images }}"
+
