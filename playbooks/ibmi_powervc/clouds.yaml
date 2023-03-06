@@ -1,11 +1,10 @@
 clouds:
   pvcmop:
     auth:
+      #PowerVC OpenStack Cloud - URL, user, passwd, project      
       auth_url: https://10.3.47.1:5000/v3
-      #username: rubyuser01 
-      #password: PassRB01%
-      username: rubyuser01
-      password: PassRB01%
+      username: rubyuserXX
+      password: xxxxxx
       project_name: ruby-students
       project_domain_name: Default
       user_domain_name: Default
